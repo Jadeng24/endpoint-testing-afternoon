@@ -116,16 +116,16 @@ module.exports = {
         const id = parseInt(req.params.id);
         if (isNaN(id) || typeof id !== 'number' || !id) {
             return res.status(400)
-                        .send('Error with user ID in request.')
+                         .send('Error with user ID in request.')
         }
         let removedUser = `No user with an ID of ${id}.`;
-        users = users.filter( user => {
+            users = users.filter( user => {
             if (user.id === id) removedUser = user;
             return user.id !== id;
-        })
+            })
         if (typeof removedUser === 'string') {
             return res.status(404).send(removedUser);
-        }
+         }
         return res.status(200).send([removedUser]);
     }
 }
